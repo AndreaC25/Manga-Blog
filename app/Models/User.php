@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Profile;  // importazione del modello Profile
+use App\Models\Comic;  // importazione del modello Comic
 
 class User extends Authenticatable
 {
@@ -41,4 +43,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class); // un utente ha un profilo
+    }
+
+    public function comics()
+    {
+        return $this->hasMany(Comic::class); // un utente ha molti manga
+    }
 }
