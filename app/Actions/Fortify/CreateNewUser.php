@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule; 
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 
-class CreatesNewUser implements CreatesNewUsers
+class CreateNewUser implements CreatesNewUsers
 {
     public function create(array $input): User  
     {
@@ -24,3 +24,5 @@ class CreatesNewUser implements CreatesNewUsers
             "password" => Hash::make($input["password"]),
         ]);
     }   
+
+}
