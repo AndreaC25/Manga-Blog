@@ -40,7 +40,7 @@ class ComicController extends Controller
     public function store(StoreComicRequest $request)
     {
         $data = $request->only(['title', 'number', 'year', 'plot', 'magazine_id'] );
-        $data=['user_id'] = auth()->id();
+        $data['user_id'] = auth()->id();
 
         if ($request->hasFile('img')) {
             $data['img'] = $request->file('img')->store('comics', 'public');
