@@ -22,7 +22,7 @@ class ContactController extends Controller
             'message' => 'required|string|max:2000',
         ]);
 
-        Mail::to(config('mail.admin_address'))->send(new ContactMail($data['name'], $data['email'], $data['message']));
+        Mail::to('mail.admin@manga-blog.it')->send(new ContactMail($data['name'], $data['email'], $data['message']));
 
         return redirect()->route('contact.create')->with('success', 'Messaggio inviato con successo!');
     }
